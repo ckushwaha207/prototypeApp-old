@@ -1,0 +1,74 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myItemPriceLabel" data-translate="prototypeApp.itemPrice.home.createOrEditLabel">Create or edit a Item Price</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.itemPrice.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.itemPrice.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="prototypeApp.itemPrice.productId" for="field_productId">Product Id</label>
+            <input type="text" class="form-control" name="productId" id="field_productId"
+                    ng-model="vm.itemPrice.productId"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.productId.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.productId.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.productId.$error.maxlength" data-translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="prototypeApp.itemPrice.listPrice" for="field_listPrice">List Price</label>
+            <input type="number" class="form-control" name="listPrice" id="field_listPrice"
+                    ng-model="vm.itemPrice.listPrice"
+                    required />
+            <div ng-show="editForm.listPrice.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.listPrice.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.listPrice.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="prototypeApp.itemPrice.salePrice" for="field_salePrice">Sale Price</label>
+            <input type="number" class="form-control" name="salePrice" id="field_salePrice"
+                    ng-model="vm.itemPrice.salePrice"
+                    required />
+            <div ng-show="editForm.salePrice.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.salePrice.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.salePrice.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

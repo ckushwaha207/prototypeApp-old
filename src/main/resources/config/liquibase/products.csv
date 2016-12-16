@@ -1,0 +1,7 @@
+id,product_id,barcode_id,name,sku_code,image_url,description,price_id
+1,prd1234,8902242108341,Sundaram Notebook,sku1234,null,100 page notebook,1
+2,prd1235,8902242108342,Lays Waffer,sku1235,null,Cholestrol free potato chips,2
+3,prd1236,8902242108343,Xiomi Mobile,sku1236,null,null,3
+4,prd1237,8902242108344,Roxx Glass,sku1237,null,null,4
+5,prd1238,8902242108345,Dell Inspiron Laptop,sku1238,null,null,5
+6,prd1239,8902242108346,Yapster Headphone,sku1239,null,null,6
