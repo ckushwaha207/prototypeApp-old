@@ -3,14 +3,14 @@ services:
     prototypeapp-app:
         image: prototypeapp
         external_links:
-            - prototypeapp-postgresql:postgresql
+            - prototypeapp-mysql:mysql
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
-            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/prototypeApp
+            - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/prototypeapp?useUnicode=true&characterEncoding=utf8&useSSL=false
             - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
         ports:
             - 8080:8080
-    prototypeapp-postgresql:
+    prototypeapp-mysql:
         extends:
-            file: postgresql.yml
-            service: prototypeapp-postgresql
+            file: mysql.yml
+            service: prototypeapp-mysql

@@ -96,7 +96,7 @@ jhipster:
         license:
         licenseUrl:
     social:
-        redirectAfterSignIn: "/#/social-auth"
+        redirectAfterSignIn: "/#/home"
     ribbon:
         # comma separated list of profiles to show a ribbon on the GUI
         displayOnActiveProfiles: dev

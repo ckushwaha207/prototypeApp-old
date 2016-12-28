@@ -1,3 +1,6 @@
+import java.nio.charset.StandardCharsets
+import java.util.Base64
+
 import _root_.io.gatling.core.scenario.Simulation
 import ch.qos.logback.classic.{Level, LoggerContext}
 import io.gatling.core.Predef._
@@ -32,14 +35,17 @@ class ItemPriceGatlingTest extends Simulation {
         "Accept" -> """application/json"""
     )
 
+    val authorization_header = "Basic " + Base64.getEncoder.encodeToString("prototypeAppapp:my-secret-token-to-change-in-production".getBytes(StandardCharsets.UTF_8))
+
     val headers_http_authentication = Map(
-        "Content-Type" -> """application/json""",
-        "Accept" -> """application/json"""
+        "Content-Type" -> """application/x-www-form-urlencoded""",
+        "Accept" -> """application/json""",
+        "Authorization"-> authorization_header
     )
 
     val headers_http_authenticated = Map(
         "Accept" -> """application/json""",
-        "Authorization" -> "${access_token}"
+        "Authorization" -> "Bearer ${access_token}"
     )
 
     val scn = scenario("Test the ItemPrice entity")
@@ -49,10 +55,16 @@ class ItemPriceGatlingTest extends Simulation {
         .check(status.is(401))).exitHereIfFailed
         .pause(10)
         .exec(http("Authentication")
-        .post("/api/authenticate")
+        .post("/oauth/token")
         .headers(headers_http_authentication)
-        .body(StringBody("""{"username":"admin", "password":"admin"}""")).asJSON
-        .check(header.get("Authorization").saveAs("access_token"))).exitHereIfFailed
+        .formParam("username", "admin")
+        .formParam("password", "admin")
+        .formParam("grant_type", "password")
+        .formParam("scope", "read write")
+        .formParam("client_secret", "my-secret-token-to-change-in-production")
+        .formParam("client_id", "prototypeAppapp")
+        .formParam("submit", "Login")
+        .check(jsonPath("$.access_token").saveAs("access_token"))).exitHereIfFailed
         .pause(1)
         .exec(http("Authenticated request")
         .get("/api/account")
