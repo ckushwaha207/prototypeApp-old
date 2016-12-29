@@ -5,13 +5,13 @@
     "packageName": "com.app.proto",
     "packageFolder": "com/app/proto",
     "serverPort": "8080",
-    "authenticationType": "oauth2",
+    "authenticationType": "jwt",
     "hibernateCache": "ehcache",
     "clusteredHttpSession": false,
     "websocket": false,
     "databaseType": "sql",
     "devDatabaseType": "h2Memory",
-    "prodDatabaseType": "mysql",
+    "prodDatabaseType": "postgresql",
     "searchEngine": false,
     "messageBroker": false,
     "buildTool": "gradle",
@@ -30,7 +30,6 @@
     "nativeLanguage": "en",
     "languages": [
       "en"
-    ],
-    "serviceDiscoveryType": false
+    ]
   }
 }

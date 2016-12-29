@@ -67,11 +67,10 @@ jhipster:
         queueCapacity: 10000
     security:
         authentication:
-            oauth:
-                clientid: prototypeAppapp
-                secret: my-secret-token-to-change-in-production
-                # Token is valid 30 minutes
-                tokenValidityInSeconds: 1800
+            jwt:
+                secret: 59d9fec2a725144fecb0688426671492fba43b93
+                # Token is valid 24 hours
+                tokenValidityInSeconds: 86400
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
     swagger:
