@@ -24,15 +24,93 @@
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <page-ribbon></page-ribbon>
+    <!--<page-ribbon></page-ribbon>-->
     <div ui-view="navbar" ng-cloak></div>
     <div class="container">
         <div class="well" ui-view="content">
             <!-- Angular views -->
         </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="section">
+                        <h5>Prototype App</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Features</li>
+                            <li class="list-group-item">Showcase</li>
+                            <li class="list-group-item">Download</li>
+                            <li class="list-group-item">Demo</li>
+                            <li class="list-group-item">Login</li>
+                            <li class="list-group-item">Partners</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <div class="footer" ng-cloak>
-            <p data-translate="footer">This is your footer</p>
+                <div class="col-sm-2">
+                    <div class="section">
+                        <h5>Company</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Contact Us</li>
+                            <li class="list-group-item">Campany</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="section">
+                        <h5>Support</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">FAQ</li>
+                            <li class="list-group-item">Dedicated Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <div class="section">
+                        <h5>Resources</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Blog</li>
+                            <li class="list-group-item">Documentation</li>
+                            <li class="list-group-item">Developer</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-sm-2 col-md-4">
+                    <div class="section">
+                        <h5>Newsletter</h5>
+                        <p>Subscribe to our newsletters and stay informed of new releases and other OpenCart events.</p>
+                        <div class="input-group newsletter">
+                            <input type="text" name="newsletter" value="" placeholder="Enter your E-mail" class="form-control">
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-primary" style="background-color: black">SUBMIT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div id="copyright">
+                        <ul class="list-inline list-group">
+                            <li class="list-group-item"><a href="#">PrototypeApp</a></li>
+                            <li class="list-group-item">&copy; Copyright 2016 PrototypeApp</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div id="social">
+                        <ul class="list-inline list-group">
+                            <li class="list-group-item">Facebook</li>
+                            <li class="list-group-item">Twitter</li>
+                            <li class="list-group-item">Google Plus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
