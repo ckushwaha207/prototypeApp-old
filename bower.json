@@ -31,16 +31,27 @@
     "swagger-ui": "2.1.5",
     "arrive": "2.3.0",
     "bootstrap-material-design": "0.5.10",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "AdminLTE": "admin-lte#^2.3.8",
+    "Ionicons": "ionicons#^2.0.1",
+    "ng-fastclick": "^1.0.2",
+    "angular-chartjs": "1.1.1"
   },
   "devDependencies": {
     "angular-mocks": "1.5.8"
   },
+  "ignoredDependencies": [
+    "bootstrap-material-design"
+  ],
   "overrides": {
     "angular": {
       "dependencies": {
         "jquery": "3.1.0"
-      }
+      },
+
+     "angular-chartjs": {
+       "angular": "1.5.8"
+     }
     },
     "angular-cache-buster": {
       "dependencies": {
@@ -55,6 +66,18 @@
     "bootstrap-sass": {
       "main": [
         "assets/stylesheets/_bootstrap.scss"
+      ]
+    },
+    "AdminLTE": {
+      "main": [
+        "dist/css/AdminLTE.css",
+        "dist/css/skins/skin-green-light.css",
+        "dist/js/app.js"
+      ]
+    },
+    "Ionicons": {
+      "main": [
+        "scss/ionicons.scss"
       ]
     }
   },

@@ -15,6 +15,16 @@
                     templateUrl: 'app/layouts/navbar/navbar.html',
                     controller: 'NavbarController',
                     controllerAs: 'vm'
+                },
+                'sidebar@': {
+                    templateUrl: 'app/layouts/sidebar/sidebar.html',
+                    controller: 'SidebarController',
+                    controllerAs: 'vm'
+                },
+                'dashboard@': {
+                    templateUrl: 'app/layouts/dashboard/dashboard.html',
+                    controller: 'DashboardController',
+                    controllerAs: 'vm'
                 }
             },
             resolve: {
