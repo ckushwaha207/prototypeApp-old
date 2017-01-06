@@ -46,20 +46,8 @@
 
         </header>
 
-        <!-- Left side column. contains the logo and sidebar -->
-        <div ui-view="sidebar" ng-cloak></div>
+        <div class="well" ui-view="content"></div>
 
-        <!-- Dashboard -->
-        <div ui-view="dashboard" ng-cloak></div>
-
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="pull-right hidden-xs">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
-        </footer>
 
     </div>
 
@@ -131,12 +119,36 @@
     <script src="app/layouts/dashboard/dashboard.controller.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/store-user/store-user-dialog.controller.js"></script>
+    <script src="app/entities/store-user/store-user-detail.controller.js"></script>
+    <script src="app/entities/store-user/store-user-delete-dialog.controller.js"></script>
+    <script src="app/entities/store-user/store-user.state.js"></script>
+    <script src="app/entities/store-user/store-user.service.js"></script>
+    <script src="app/entities/store-user/store-user.controller.js"></script>
+    <script src="app/entities/store-branch/store-branch-dialog.controller.js"></script>
+    <script src="app/entities/store-branch/store-branch-detail.controller.js"></script>
+    <script src="app/entities/store-branch/store-branch-delete-dialog.controller.js"></script>
+    <script src="app/entities/store-branch/store-branch.state.js"></script>
+    <script src="app/entities/store-branch/store-branch.service.js"></script>
+    <script src="app/entities/store-branch/store-branch.controller.js"></script>
+    <script src="app/entities/store/store-dialog.controller.js"></script>
+    <script src="app/entities/store/store-detail.controller.js"></script>
+    <script src="app/entities/store/store-delete-dialog.controller.js"></script>
+    <script src="app/entities/store/store.state.js"></script>
+    <script src="app/entities/store/store.service.js"></script>
+    <script src="app/entities/store/store.controller.js"></script>
     <script src="app/entities/product/product-dialog.controller.js"></script>
     <script src="app/entities/product/product-detail.controller.js"></script>
     <script src="app/entities/product/product-delete-dialog.controller.js"></script>
     <script src="app/entities/product/product.state.js"></script>
     <script src="app/entities/product/product.service.js"></script>
     <script src="app/entities/product/product.controller.js"></script>
+    <script src="app/entities/location/location-dialog.controller.js"></script>
+    <script src="app/entities/location/location-detail.controller.js"></script>
+    <script src="app/entities/location/location-delete-dialog.controller.js"></script>
+    <script src="app/entities/location/location.state.js"></script>
+    <script src="app/entities/location/location.service.js"></script>
+    <script src="app/entities/location/location.controller.js"></script>
     <script src="app/entities/item-price/item-price-dialog.controller.js"></script>
     <script src="app/entities/item-price/item-price-detail.controller.js"></script>
     <script src="app/entities/item-price/item-price-delete-dialog.controller.js"></script>

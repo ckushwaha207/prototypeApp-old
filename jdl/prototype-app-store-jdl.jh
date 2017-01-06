@@ -1,0 +1,43 @@
+entity Store {
+	name String required
+    description String
+    logoUrl String
+}
+
+entity StoreBranch {
+	name String required
+}
+
+entity StoreUser {
+	login String required
+    firstName String maxlength(50)
+    lastName String maxlength(50)
+    email String required
+    activated Boolean required
+    password String maxlength(60)
+}
+
+entity Location {
+	name String required
+    address1 String required
+    address2 String
+    city String required
+    state String required
+}
+
+relationship OneToMany {
+	Store{branches} to StoreBranch{store}
+}
+
+relationship OneToOne {
+	StoreBranch{location(id)} to Location{branch}
+}
+
+relationship OneToMany {
+	Store{users} to StoreUser{store}
+}
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
