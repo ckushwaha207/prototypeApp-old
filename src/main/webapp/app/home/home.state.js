@@ -19,16 +19,6 @@
                     templateUrl: 'app/home/home.html',
                     controller: 'HomeController',
                     controllerAs: 'vm'
-                },
-                'sidebar@home': {
-                    templateUrl: 'app/layouts/sidebar/sidebar.html',
-                    controller: 'SidebarController',
-                    controllerAs: 'vm'
-                },
-                'dashboard@home': {
-                    templateUrl: 'app/layouts/dashboard/dashboard.html',
-                    controller: 'DashboardController',
-                    controllerAs: 'vm'
                 }
             },
             resolve: {

@@ -1,22 +1,33 @@
-<div>
-    <h2 data-translate="prototypeApp.product.home.title">Products</h2>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="product.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="prototypeApp.product.home.createLabel">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" ng-cloak>
+    <section class="content-header">
+        <h1 data-translate="prototypeApp.product.home.title">Products</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Catalogs</li>
+            <li class="active" data-translate="prototypeApp.store.home.title">Stores</li>
+        </ol>
+        <span><br/></span>
+        <jhi-alert></jhi-alert>
+    </section>
+
+    <section class="content" ng-switch="vm.products.length > 0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="product.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span data-translate="prototypeApp.product.home.createLabel">
                         Create new Product
                     </span>
-                </button>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
+        <br/>
+        <div class="table-responsive" ng-switch-when="true">
+            <table class="jh-table table table-striped">
+                <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="prototypeApp.product.productId">Product Id</span></th>
@@ -28,8 +39,8 @@
                     <th><span data-translate="prototypeApp.product.price">Price</span></th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr ng-repeat="product in vm.products track by product.id">
                     <td><a ui-sref="product-detail({id:product.id})">{{product.id}}</a></td>
                     <td>{{product.productId}}</td>
@@ -64,7 +75,10 @@
                         </div>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+        <div ng-switch-when="false">No <span data-translate="prototypeApp.store.product.title">Products</span> found
+        </div>
+    </section>
 </div>

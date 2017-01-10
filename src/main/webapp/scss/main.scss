@@ -389,18 +389,26 @@ Social button
 /* ==========================================================================
 Fix error field display
 ========================================================================== */
-.form-group .help-block {
-    position: static;
+.form-group {
+    & .help-block {
+        position: static;
+    }
 }
 
 /* ==========================================================================
 Footer
 ========================================================================== */
-.footer {
-    background-color: #242d37;
-    color: #fafafa;
-    padding: 60px 0;
+.wrapper {
+    & .no-sidebar {
+        & .main-footer {
+                background-color: #242d37;
+                color: #fafafa;
+                margin: auto;
+                border: 0px;
+            }
+    }
 }
+
 
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

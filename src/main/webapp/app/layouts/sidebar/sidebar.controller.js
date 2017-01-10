@@ -9,6 +9,7 @@
 
     function SidebarController ($state, Auth, Principal, ProfileService, LoginService) {
         var vm = this;
+        vm.isAuthenticated = Principal.isAuthenticated;
 
 
     }

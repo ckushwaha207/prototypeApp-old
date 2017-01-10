@@ -1,22 +1,32 @@
-<div>
-    <h2 data-translate="prototypeApp.location.home.title">Locations</h2>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="location.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="prototypeApp.location.home.createLabel">
+<div class="content-wrapper" ng-cloak>
+    <section class="content-header">
+        <h1 data-translate="prototypeApp.location.home.title">Locations</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Settings</li>
+            <li class="active" data-translate="prototypeApp.location.home.title">Locations</li>
+        </ol>
+        <span><br/></span>
+        <jhi-alert></jhi-alert>
+    </section>
+
+    <section class="content" ng-switch="vm.locations.length > 0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="location.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span data-translate="prototypeApp.location.home.createLabel">
                         Create new Location
                     </span>
-                </button>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
+        <br/>
+        <div class="table-responsive">
+            <table class="jh-table table table-striped" ng-switch-when="true">
+                <thead>
                 <tr>
                     <th><span data-translate="global.field.id">ID</span></th>
                     <th><span data-translate="prototypeApp.location.name">Name</span></th>
@@ -26,8 +36,8 @@
                     <th><span data-translate="prototypeApp.location.state">State</span></th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr ng-repeat="location in vm.locations track by location.id">
                     <td><a ui-sref="location-detail({id:location.id})">{{location.id}}</a></td>
                     <td>{{location.name}}</td>
@@ -58,7 +68,10 @@
                         </div>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+        <div ng-switch-when="false">No <span data-translate="prototypeApp.location.home.title">Locations</span> found
+        </div>
+    </section>
 </div>

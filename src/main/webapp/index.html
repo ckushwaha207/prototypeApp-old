@@ -34,7 +34,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="#" class="logo">
+            <a ui-sref="dashboard" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>P</b>A</span>
                 <!-- logo for regular state and mobile devices -->
@@ -46,8 +46,14 @@
 
         </header>
 
-        <div class="well" ui-view="content"></div>
+        <!-- Sidebar Nav -->
+        <div ui-view="sidebar" ng-cloak></div>
 
+        <!-- Content -->
+        <div ui-view="content"></div>
+
+        <!-- Footer -->
+        <div ui-view="footer" ng-cloak></div>
 
     </div>
 
@@ -98,9 +104,13 @@
     <!-- build:js app/app.js  -->
     <!-- inject:js -->
     <script src="app/app.module.js"></script>
+    <script src="app/site/site.state.js"></script>
+    <script src="app/site/dashboard/dashboard.state.js"></script>
+    <script src="app/site/dashboard/dashboard.controller.js"></script>
     <script src="app/services/user/user.service.js"></script>
     <script src="app/services/profiles/profile.service.js"></script>
     <script src="app/services/profiles/page-ribbon.directive.js"></script>
+    <script src="app/services/dashboard/dashboard-ui.service.js"></script>
     <script src="app/services/auth/register.service.js"></script>
     <script src="app/services/auth/principal.service.js"></script>
     <script src="app/services/auth/password-reset-init.service.js"></script>
@@ -115,8 +125,8 @@
     <script src="app/layouts/sidebar/sidebar.controller.js"></script>
     <script src="app/layouts/navbar/navbar.controller.js"></script>
     <script src="app/layouts/navbar/active-menu.directive.js"></script>
+    <script src="app/layouts/footer/footer.controller.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
-    <script src="app/layouts/dashboard/dashboard.controller.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
     <script src="app/entities/store-user/store-user-dialog.controller.js"></script>
@@ -242,6 +252,8 @@
     <script src="app/account/account.state.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+
+    <script src="bower_components/AdminLTE/dist/js/app.js"></script>
 
 </body>
 </html>

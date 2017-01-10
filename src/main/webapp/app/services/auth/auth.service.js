@@ -49,6 +49,8 @@
                 // an authenticated user can't access to login and register pages
                 if (isAuthenticated && $rootScope.toState.parent === 'account' && ($rootScope.toState.name === 'login' || $rootScope.toState.name === 'register' || $rootScope.toState.name === 'social-auth')) {
                     $state.go('home');
+                } else if(isAuthenticated && $rootScope.toState.parent === 'app' && $rootScope.toState.name === 'home') {
+                   $state.go('dashboard');
                 }
 
                 // recover and clear previousState after external login redirect (e.g. oauth2)

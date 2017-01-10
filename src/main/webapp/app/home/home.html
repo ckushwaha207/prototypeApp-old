@@ -1,29 +1,7 @@
-<div class="body" ng-switch="vm.isAuthenticated()">
-    <div class="container" ng-switch-when="false">
-        <div ng-cloak ng-switch-when="false">
-            <div class="row">
-                <div class="col-md-4">
-                    <span class="hipster img-responsive img-rounded"></span>
-                </div>
-            </div>
+<div class="container" ng-cloack>
+    <div class="row">
+        <div class="col-md-4">
+            <span class="hipster img-responsive img-rounded"></span>
         </div>
     </div>
-
-    <div class="admin" ng-switch-when="true">
-        <!-- Left side column. contains the logo and sidebar -->
-        <div ui-view="sidebar"></div>
-
-        <!-- Dashboard -->
-        <div ui-view="dashboard" ng-cloak></div>
-
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="pull-right hidden-xs">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright © 2016 <a href="#">Company</a>.</strong> All rights reserved.
-        </footer>
-    </div>
-
 </div>

@@ -1,4 +1,4 @@
-<aside class="main-sidebar">
+<aside class="main-sidebar" ng-if="vm.isAuthenticated()" has-authority="ROLE_ADMIN">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar" style="height: auto;">
         <form action="#" method="get" class="sidebar-form">
@@ -14,13 +14,26 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <!--<li class="header">MAIN NAVIGATION</li>-->
-            <li class="active treeview">
-                <a href="#">
+            <li ui-sref-active="active">
+                <a ui-sref="dashboard">
                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                    <span>Catalogs</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li ui-sref-active="active"><a ui-sref="product"><i class="fa fa-circle-o"></i> Products</a></li>
+                    <li ui-sref-active="active"><a ui-sref="item-price"><i class="fa fa-circle-o"></i> Item Prices</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                     <span>Settings</span>
                     <span class="pull-right-container">
@@ -28,7 +41,10 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a ui-sref="store"><i class="fa fa-circle-o"></i> Store</a></li>
+                    <li ui-sref-active="active"><a ui-sref="store"><i class="fa fa-circle-o"></i> Stores</a></li>
+                    <li ui-sref-active="active"><a ui-sref="store-branch"><i class="fa fa-circle-o"></i> Store Branches</a></li>
+                    <li ui-sref-active="active"><a ui-sref="store-user"><i class="fa fa-circle-o"></i> Store Users</a></li>
+                    <li ui-sref-active="active"><a ui-sref="location"><i class="fa fa-circle-o"></i> Locations</a></li>
                 </ul>
             </li>
         </ul>
