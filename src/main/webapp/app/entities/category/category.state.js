@@ -9,17 +9,17 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('item-price', {
+        .state('category', {
             parent: 'entity',
-            url: '/item-price?page&sort&search',
+            url: '/category?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'prototypeApp.itemPrice.home.title'
+                pageTitle: 'prototypeApp.category.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/item-price/item-prices.html',
-                    controller: 'ItemPriceController',
+                    templateUrl: 'app/entities/category/categories.html',
+                    controller: 'CategoryController',
                     controllerAs: 'vm'
                 }
             },
@@ -45,37 +45,37 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('itemPrice');
+                    $translatePartialLoader.addPart('category');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('item-price-detail', {
+        .state('category-detail', {
             parent: 'entity',
-            url: '/item-price/{id}',
+            url: '/category/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'prototypeApp.itemPrice.detail.title'
+                pageTitle: 'prototypeApp.category.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/item-price/item-price-detail.html',
-                    controller: 'ItemPriceDetailController',
+                    templateUrl: 'app/entities/category/category-detail.html',
+                    controller: 'CategoryDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('itemPrice');
+                    $translatePartialLoader.addPart('category');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'ItemPrice', function($stateParams, ItemPrice) {
-                    return ItemPrice.get({id : $stateParams.id}).$promise;
+                entity: ['$stateParams', 'Category', function($stateParams, Category) {
+                    return Category.get({id : $stateParams.id}).$promise;
                 }],
                 previousState: ["$state", function ($state) {
                     var currentStateData = {
-                        name: $state.current.name || 'item-price',
+                        name: $state.current.name || 'category',
                         params: $state.params,
                         url: $state.href($state.current.name, $state.params)
                     };
@@ -83,22 +83,22 @@
                 }]
             }
         })
-        .state('item-price-detail.edit', {
-            parent: 'item-price-detail',
+        .state('category-detail.edit', {
+            parent: 'category-detail',
             url: '/detail/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/item-price/item-price-dialog.html',
-                    controller: 'ItemPriceDialogController',
+                    templateUrl: 'app/entities/category/category-dialog.html',
+                    controller: 'CategoryDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['ItemPrice', function(ItemPrice) {
-                            return ItemPrice.get({id : $stateParams.id}).$promise;
+                        entity: ['Category', function(Category) {
+                            return Category.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -108,80 +108,79 @@
                 });
             }]
         })
-        .state('item-price.new', {
-            parent: 'item-price',
+        .state('category.new', {
+            parent: 'category',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/item-price/item-price-dialog.html',
-                    controller: 'ItemPriceDialogController',
+                    templateUrl: 'app/entities/category/category-dialog.html',
+                    controller: 'CategoryDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                productId: null,
-                                listPrice: null,
-                                salePrice: null,
+                                name: null,
+                                description: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('item-price', null, { reload: 'item-price' });
+                    $state.go('category', null, { reload: 'category' });
                 }, function() {
-                    $state.go('item-price');
+                    $state.go('category');
                 });
             }]
         })
-        .state('item-price.edit', {
-            parent: 'item-price',
+        .state('category.edit', {
+            parent: 'category',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/item-price/item-price-dialog.html',
-                    controller: 'ItemPriceDialogController',
+                    templateUrl: 'app/entities/category/category-dialog.html',
+                    controller: 'CategoryDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['ItemPrice', function(ItemPrice) {
-                            return ItemPrice.get({id : $stateParams.id}).$promise;
+                        entity: ['Category', function(Category) {
+                            return Category.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('item-price', null, { reload: 'item-price' });
+                    $state.go('category', null, { reload: 'category' });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('item-price.delete', {
-            parent: 'item-price',
+        .state('category.delete', {
+            parent: 'category',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/item-price/item-price-delete-dialog.html',
-                    controller: 'ItemPriceDeleteController',
+                    templateUrl: 'app/entities/category/category-delete-dialog.html',
+                    controller: 'CategoryDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['ItemPrice', function(ItemPrice) {
-                            return ItemPrice.get({id : $stateParams.id}).$promise;
+                        entity: ['Category', function(Category) {
+                            return Category.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('item-price', null, { reload: 'item-price' });
+                    $state.go('category', null, { reload: 'category' });
                 }, function() {
                     $state.go('^');
                 });

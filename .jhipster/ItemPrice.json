@@ -37,6 +37,6 @@
     "changelogDate": "20161216142409",
     "entityTableName": "item_price",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "pager",
     "service": "serviceImpl"
 }

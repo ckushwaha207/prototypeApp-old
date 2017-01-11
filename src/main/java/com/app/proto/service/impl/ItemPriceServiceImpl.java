@@ -7,6 +7,8 @@ import com.app.proto.service.dto.ItemPriceDTO;
 import com.app.proto.service.mapper.ItemPriceMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -48,16 +50,14 @@ public class ItemPriceServiceImpl implements ItemPriceService{
     /**
      *  Get all the itemPrices.
      *  
+     *  @param pageable the pagination information
      *  @return the list of entities
      */
     @Transactional(readOnly = true) 
-    public List<ItemPriceDTO> findAll() {
+    public Page<ItemPriceDTO> findAll(Pageable pageable) {
         log.debug("Request to get all ItemPrices");
-        List<ItemPriceDTO> result = itemPriceRepository.findAll().stream()
-            .map(itemPriceMapper::itemPriceToItemPriceDTO)
-            .collect(Collectors.toCollection(LinkedList::new));
-
-        return result;
+        Page<ItemPrice> result = itemPriceRepository.findAll(pageable);
+        return result.map(itemPrice -> itemPriceMapper.itemPriceToItemPriceDTO(itemPrice));
     }
 
 

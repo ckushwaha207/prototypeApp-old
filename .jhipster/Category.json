@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "parentCategory",
+            "otherEntityName": "category",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "category"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "products",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "category"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170110150313",
+    "entityTableName": "category",
+    "dto": "mapstruct",
+    "pagination": "pager",
+    "service": "serviceImpl"
+}

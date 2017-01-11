@@ -39,6 +39,8 @@ public class ProductDTO implements Serializable {
 
     private Double salePrice;
 
+    private Long categoryId;
+
     public Long getId() {
         return id;
     }
@@ -111,6 +113,14 @@ public class ProductDTO implements Serializable {
 
     public void setSalePrice(Double salePrice) {
         this.salePrice = salePrice;
+    }
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 
     @Override

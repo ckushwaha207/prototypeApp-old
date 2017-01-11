@@ -1,17 +1,6 @@
-entity Order(p_order) {
-	orderNumber String required
-}
-
-entity CommerceItem {
-	quantity Integer required
-}
-
-relationship OneToMany {
-	Order{commerceItems} to CommerceItem{order}
-}
-
-relationship OneToOne {
-	CommerceItem{product} to Product
+entity Category {
+	name String required
+    description String
 }
 
 entity Product {
@@ -29,9 +18,19 @@ entity ItemPrice {
     salePrice Double required
 }
 
-relationship OneToOne{
-        Product{price} to ItemPrice{product}
+relationship OneToOne {
+	Category{parentCategory(name)} to Category
 }
+
+relationship ManyToOne {
+    Product{category} to Category{products}
+}
+
+relationship OneToOne{
+	Product{price} to ItemPrice{product}
+}
+
+paginate * with pager
 
 dto * with mapstruct
 

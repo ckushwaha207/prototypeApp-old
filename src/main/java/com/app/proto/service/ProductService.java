@@ -1,6 +1,8 @@
 package com.app.proto.service;
 
 import com.app.proto.service.dto.ProductDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 /**
@@ -19,9 +21,10 @@ public interface ProductService {
     /**
      *  Get all the products.
      *
+     *  @param pageable the pagination information
      *  @return the list of entities
      */
-    List<ProductDTO> findAll();
+    Page<ProductDTO> findAll(Pageable pageable);
 
     /**
      *  Get the "id" product.

@@ -5,9 +5,9 @@
         .module('prototypeApp')
         .controller('ProductDialogController', ProductDialogController);
 
-    ProductDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Product', 'ItemPrice'];
+    ProductDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Product', 'ItemPrice', 'Category'];
 
-    function ProductDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Product, ItemPrice) {
+    function ProductDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Product, ItemPrice, Category) {
         var vm = this;
 
         vm.product = entity;
@@ -22,6 +22,7 @@
         }).then(function(price) {
             vm.prices.push(price);
         });
+        vm.categories = Category.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

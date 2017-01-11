@@ -2,9 +2,9 @@
 
 describe('Controller Tests', function() {
 
-    describe('Product Management Detail Controller', function() {
+    describe('Category Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockPreviousState, MockProduct, MockItemPrice, MockCategory;
+        var MockEntity, MockPreviousState, MockCategory, MockProduct;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,9 +12,8 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockPreviousState = jasmine.createSpy('MockPreviousState');
-            MockProduct = jasmine.createSpy('MockProduct');
-            MockItemPrice = jasmine.createSpy('MockItemPrice');
             MockCategory = jasmine.createSpy('MockCategory');
+            MockProduct = jasmine.createSpy('MockProduct');
             
 
             var locals = {
@@ -22,19 +21,18 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity,
                 'previousState': MockPreviousState,
-                'Product': MockProduct,
-                'ItemPrice': MockItemPrice,
-                'Category': MockCategory
+                'Category': MockCategory,
+                'Product': MockProduct
             };
             createController = function() {
-                $injector.get('$controller')("ProductDetailController", locals);
+                $injector.get('$controller')("CategoryDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'prototypeApp:productUpdate';
+                var eventType = 'prototypeApp:categoryUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

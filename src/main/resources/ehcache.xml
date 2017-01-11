@@ -38,5 +38,9 @@
 
     <cache alias="com.app.proto.domain.Location" uses-template="simple"/>
 
+    <cache alias="com.app.proto.domain.Category" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.Category.products" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>

@@ -3,11 +3,11 @@
 
     angular
         .module('prototypeApp')
-        .controller('ProductController', ProductController);
+        .controller('CategoryController', CategoryController);
 
-    ProductController.$inject = ['$scope', '$state', 'Product', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
+    CategoryController.$inject = ['$scope', '$state', 'Category', 'ParseLinks', 'AlertService', 'paginationConstants', 'pagingParams'];
 
-    function ProductController ($scope, $state, Product, ParseLinks, AlertService, paginationConstants, pagingParams) {
+    function CategoryController ($scope, $state, Category, ParseLinks, AlertService, paginationConstants, pagingParams) {
         var vm = this;
 
         vm.loadPage = loadPage;
@@ -19,7 +19,7 @@
         loadAll();
 
         function loadAll () {
-            Product.query({
+            Category.query({
                 page: pagingParams.page - 1,
                 size: vm.itemsPerPage,
                 sort: sort()
@@ -35,7 +35,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.products = data;
+                vm.categories = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

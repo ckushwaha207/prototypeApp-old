@@ -37,6 +37,8 @@ relationship OneToMany {
 	Store{users} to StoreUser{store}
 }
 
+paginate * with pager
+
 dto * with mapstruct
 
 // Set service options to all except few

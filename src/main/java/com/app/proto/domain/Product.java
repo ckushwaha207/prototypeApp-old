@@ -51,6 +51,9 @@ public class Product implements Serializable {
     @JoinColumn(unique = true)
     private ItemPrice price;
 
+    @ManyToOne
+    private Category category;
+
     public Long getId() {
         return id;
     }
@@ -148,6 +151,19 @@ public class Product implements Serializable {
 
     public void setPrice(ItemPrice itemPrice) {
         this.price = itemPrice;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public Product category(Category category) {
+        this.category = category;
+        return this;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
