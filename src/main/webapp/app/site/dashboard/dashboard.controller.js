@@ -5,9 +5,9 @@
         .module('prototypeApp')
         .controller('DashboardController', DashboardController);
 
-    DashboardController.$inject = ['$state', '$scope', '$timeout', 'DashboardUIService'];
+    DashboardController.$inject = ['$state', '$scope', '$timeout'];
 
-    function DashboardController($state, $scope, $timeout, DashboardUIService) {
+    function DashboardController($state, $scope, $timeout) {
         var vm = this;
         var line = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -35,8 +35,5 @@
 
         vm.chart = [];
         vm.chart.line = line;
-
-        DashboardUIService.stateChange;
-
     }
 })();

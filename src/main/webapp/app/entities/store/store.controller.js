@@ -5,9 +5,9 @@
         .module('prototypeApp')
         .controller('StoreController', StoreController);
 
-    StoreController.$inject = ['$scope', '$state', 'Store'];
+    StoreController.$inject = ['$scope', '$state', 'Store', 'DashboardUIService'];
 
-    function StoreController ($scope, $state, Store) {
+    function StoreController ($scope, $state, Store, DashboardUIService) {
         var vm = this;
 
         vm.stores = [];
