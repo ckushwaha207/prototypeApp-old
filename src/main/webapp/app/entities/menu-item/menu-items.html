@@ -1,0 +1,92 @@
+<div class="content-wrapper" ng-cloak>
+    <section class="content-header">
+        <h1 data-translate="prototypeApp.menuItem.home.title">Menu Items</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Settings</li>
+            <li class="active" data-translate="prototypeApp.menuItem.home.title">Menu Items</li>
+        </ol>
+        <span><br/></span>
+        <jhi-alert></jhi-alert>
+    </section>
+
+    <section class="content" ng-switch="vm.menuItems.length > 0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="menu-item.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span data-translate="prototypeApp.menuItem.home.createLabel">
+                        Create new Menu Item
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="table-responsive">
+            <table class="jh-table table table-striped" ng-switch-when="true">
+                <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuItem.name">Name</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span data-translate="prototypeApp.menuItem.price">Price</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="preparationTime"><span data-translate="prototypeApp.menuItem.preparationTime">Preparation Time</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ingredient"><span
+                        data-translate="prototypeApp.menuItem.ingredient">Ingredient</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imageUrl"><span data-translate="prototypeApp.menuItem.imageUrl">Image Url</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span
+                        data-translate="prototypeApp.menuItem.description">Description</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="menuItem in vm.menuItems track by menuItem.id">
+                    <td><a ui-sref="menu-item-detail({id:menuItem.id})">{{menuItem.id}}</a></td>
+                    <td>{{menuItem.name}}</td>
+                    <td>{{menuItem.price}}</td>
+                    <td>{{menuItem.preparationTime}}</td>
+                    <td>{{menuItem.ingredient}}</td>
+                    <td>{{menuItem.imageUrl}}</td>
+                    <td>{{menuItem.description}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="menu-item-detail({id:menuItem.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="menu-item.edit({id:menuItem.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="menu-item.delete({id:menuItem.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center" ng-switch-when="true">
+            <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        </div>
+        <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()" ng-switch-when="true"></uib-pager>
+        <div ng-switch-when="false">No <span data-translate="prototypeApp.menuItem.home.title">Menu Items</span> found
+        </div>
+    </section>
+</div>
