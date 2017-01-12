@@ -4,6 +4,6 @@
     angular
         .module('prototypeApp')
         .constant('VERSION', "0.2")
-        .constant('DEBUG_INFO_ENABLED', false)
+        .constant('DEBUG_INFO_ENABLED', true)
 ;
 })();
