@@ -6,14 +6,6 @@ entity CommerceItem {
 	quantity Integer required
 }
 
-relationship OneToMany {
-	Order{commerceItems} to CommerceItem{order}
-}
-
-relationship OneToOne {
-	CommerceItem{product} to Product
-}
-
 entity Product {
 	productId String required maxlength(20)
 	barcodeId String required maxlength(128)
@@ -23,15 +15,15 @@ entity Product {
 	description String
 }
 
-entity ItemPrice {
-	productId String required maxlength(20)
-	listPrice Double required
-    salePrice Double required
+relationship OneToMany {
+	Order{commerceItems} to CommerceItem{order}
 }
 
-relationship OneToOne{
-        Product{price} to ItemPrice{product}
+relationship OneToOne {
+	CommerceItem{product} to Product
 }
+
+paginate Order with pager
 
 dto * with mapstruct
 

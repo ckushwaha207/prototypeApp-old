@@ -8,6 +8,7 @@
     bootstrapMaterialDesignConfig.$inject = [];
 
     function bootstrapMaterialDesignConfig() {
-        $.material.init();
+       // TODO: enable material design
+       // $.material.init();
     }
 })();
