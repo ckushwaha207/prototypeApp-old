@@ -1,0 +1,24 @@
+{
+    "prototypeApp": {
+        "commerceItem" : {
+            "home": {
+                "title": "Commerce Items",
+                "createLabel": "Create a new Commerce Item",
+                "createOrEditLabel": "Create or edit a Commerce Item",
+                "search": "Search for Commerce Item"
+            },
+            "created": "A new Commerce Item is created with identifier {{ param }}",
+            "updated": "A Commerce Item is updated with identifier {{ param }}",
+            "deleted": "A Commerce Item is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Commerce Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Commerce Item"
+            },
+            "quantity": "Quantity",
+            "product": "Product",
+            "order": "Order"
+        }
+    }
+}
