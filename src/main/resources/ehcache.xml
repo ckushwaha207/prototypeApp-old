@@ -42,6 +42,12 @@
 
     <cache alias="com.app.proto.domain.Category.products" uses-template="simple"/>
 
+    <cache alias="com.app.proto.domain.Order" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.Order.commerceItems" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.CommerceItem" uses-template="simple"/>
+
     <cache alias="com.app.proto.domain.MenuItem" uses-template="simple"/>
 
     <!-- jhipster-needle-ehcache-add-entry -->

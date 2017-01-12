@@ -14,6 +14,8 @@
                 "storeUser": "Store User",
                 "location": "Location",
                 "category": "Category",
+                "order": "Order",
+                "commerceItem": "Commerce Item",
                 "menuItem": "Menu Item",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
