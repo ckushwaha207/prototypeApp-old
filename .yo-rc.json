@@ -30,6 +30,7 @@
     "nativeLanguage": "en",
     "languages": [
       "en"
-    ]
+    ],
+    "herokuAppName": "prototype-app-demo"
   }
 }
