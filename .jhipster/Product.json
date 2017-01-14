@@ -8,6 +8,12 @@
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "product"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "category",
+            "otherEntityName": "category",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -59,6 +65,6 @@
     "changelogDate": "20161216142408",
     "entityTableName": "product",
     "dto": "mapstruct",
-    "pagination": "no",
+    "pagination": "pager",
     "service": "serviceImpl"
 }

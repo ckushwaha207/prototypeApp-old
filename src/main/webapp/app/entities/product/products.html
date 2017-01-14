@@ -1,35 +1,57 @@
-<div>
-    <h2 data-translate="prototypeApp.product.home.title">Products</h2>
-    <jhi-alert></jhi-alert>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="product.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="prototypeApp.product.home.createLabel">
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper" ng-cloak>
+    <section class="content-header">
+        <h1 data-translate="prototypeApp.product.home.title">Products</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Catalogs</li>
+            <li class="active" data-translate="prototypeApp.product.home.title">Products</li>
+        </ol>
+        <span><br/></span>
+        <jhi-alert></jhi-alert>
+    </section>
+
+    <section class="content" ng-switch="vm.products.length > 0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="product.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span data-translate="prototypeApp.product.home.createLabel">
                         Create new Product
                     </span>
-                </button>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <br/>
-    <div class="table-responsive">
-        <table class="jh-table table table-striped">
-            <thead>
-                <tr>
-                    <th><span data-translate="global.field.id">ID</span></th>
-                    <th><span data-translate="prototypeApp.product.productId">Product Id</span></th>
-                    <th><span data-translate="prototypeApp.product.barcodeId">Barcode Id</span></th>
-                    <th><span data-translate="prototypeApp.product.name">Name</span></th>
-                    <th><span data-translate="prototypeApp.product.skuCode">Sku Code</span></th>
-                    <th><span data-translate="prototypeApp.product.imageUrl">Image Url</span></th>
-                    <th><span data-translate="prototypeApp.product.description">Description</span></th>
-                    <th><span data-translate="prototypeApp.product.price">Price</span></th>
+        <br/>
+        <div class="table-responsive" ng-switch-when="true">
+            <table class="jh-table table table-striped">
+                <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="productId"><span data-translate="prototypeApp.product.productId">Product Id</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="barcodeId"><span data-translate="prototypeApp.product.barcodeId">Barcode Id</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="prototypeApp.product.name">Name</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="skuCode"><span data-translate="prototypeApp.product.skuCode">Sku Code</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imageUrl"><span data-translate="prototypeApp.product.imageUrl">Image Url</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span
+                        data-translate="prototypeApp.product.description">Description</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="priceId"><span data-translate="prototypeApp.product.price">Price</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="categoryId"><span data-translate="prototypeApp.product.category">Category</span>
+                        <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 <tr ng-repeat="product in vm.products track by product.id">
                     <td><a ui-sref="product-detail({id:product.id})">{{product.id}}</a></td>
                     <td>{{product.productId}}</td>
@@ -40,6 +62,9 @@
                     <td>{{product.description}}</td>
                     <td>
                         <a ui-sref="item-price-detail({id:product.priceId})">{{product.priceId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="category-detail({id:product.categoryId})">{{product.categoryId}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -64,7 +89,16 @@
                         </div>
                     </td>
                 </tr>
-            </tbody>
-        </table>
-    </div>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center" ng-switch-when="true">
+            <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        </div>
+        <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"
+                   ng-switch-when="true"></uib-pager>
+
+        <div ng-switch-when="false">No <span data-translate="prototypeApp.product.home.title">Products</span> found
+        </div>
+    </section>
 </div>

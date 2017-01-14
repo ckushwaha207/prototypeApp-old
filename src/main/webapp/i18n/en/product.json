@@ -22,7 +22,8 @@
             "skuCode": "Sku Code",
             "imageUrl": "Image Url",
             "description": "Description",
-            "price": "Price"
+            "price": "Price",
+            "category": "Category"
         }
     }
 }

@@ -126,7 +126,7 @@ if (project.hasProperty('shell')) {
 }
 
 group = 'com.app.proto'
-version = '0.0.1-SNAPSHOT'
+version = '0.2'
 
 description = ''
 
@@ -212,12 +212,13 @@ dependencies {
     compile "org.springframework.security:spring-security-config:${spring_security_version}"
     compile "org.springframework.security:spring-security-data:${spring_security_version}"
     compile "org.springframework.security:spring-security-web:${spring_security_version}"
-    compile "org.springframework.security.oauth:spring-security-oauth2:${spring_security_oauth2_version}"
+    compile "io.jsonwebtoken:jjwt:${jjwt_version}"
     compile("io.springfox:springfox-swagger2:${springfox_version}"){
         exclude module: 'mapstruct'
     }
     compile "io.springfox:springfox-bean-validators:${springfox_version}"
     compile "mysql:mysql-connector-java"
+    compile "org.postgresql:postgresql"
     compile "com.h2database:h2"
     compile "org.mapstruct:mapstruct-jdk8:${mapstruct_version}"
     compile "org.apache.httpcomponents:httpclient"

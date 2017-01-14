@@ -1,6 +1,8 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
 
@@ -383,5 +385,30 @@ Social button
     border-color: rgba(0, 0, 0, 0.2);
     color: #fff;
 }
+
+/* ==========================================================================
+Fix error field display
+========================================================================== */
+.form-group {
+    & .help-block {
+        position: static;
+    }
+}
+
+/* ==========================================================================
+Footer
+========================================================================== */
+.wrapper {
+    & .no-sidebar {
+        & .main-footer {
+                background-color: #242d37;
+                color: #fafafa;
+                margin: auto;
+                border: 0px;
+            }
+    }
+}
+
+
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */

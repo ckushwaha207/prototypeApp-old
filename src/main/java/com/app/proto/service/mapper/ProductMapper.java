@@ -15,11 +15,13 @@ public interface ProductMapper {
     @Mapping(source = "price.id", target = "priceId")
     @Mapping(source = "price.listPrice", target="listPrice")
     @Mapping(source = "price.salePrice", target="salePrice")
+    @Mapping(source = "category.id", target = "categoryId")
     ProductDTO productToProductDTO(Product product);
 
     List<ProductDTO> productsToProductDTOs(List<Product> products);
 
     @Mapping(source = "priceId", target = "price")
+    @Mapping(source = "categoryId", target = "category")
     Product productDTOToProduct(ProductDTO productDTO);
 
     List<Product> productDTOsToProducts(List<ProductDTO> productDTOs);
@@ -31,5 +33,14 @@ public interface ProductMapper {
         ItemPrice itemPrice = new ItemPrice();
         itemPrice.setId(id);
         return itemPrice;
+    }
+
+    default Category categoryFromId(Long id) {
+        if (id == null) {
+            return null;
+        }
+        Category category = new Category();
+        category.setId(id);
+        return category;
     }
 }

@@ -3,10 +3,14 @@ package com.app.proto.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.app.proto.service.ItemPriceService;
 import com.app.proto.web.rest.util.HeaderUtil;
+import com.app.proto.web.rest.util.PaginationUtil;
 import com.app.proto.service.dto.ItemPriceDTO;
 
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -79,18 +83,24 @@ public class ItemPriceResource {
     /**
      * GET  /item-prices : get all the itemPrices.
      *
+     * @param pageable the pagination information
      * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of itemPrices in body
+     * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
     @GetMapping("/item-prices")
     @Timed
-    public List<ItemPriceDTO> getAllItemPrices(@RequestParam(required = false) String filter) {
+    public ResponseEntity<List<ItemPriceDTO>> getAllItemPrices(@ApiParam Pageable pageable, @RequestParam(required = false) String filter)
+        throws URISyntaxException {
         if ("product-is-null".equals(filter)) {
             log.debug("REST request to get all ItemPrices where product is null");
-            return itemPriceService.findAllWhereProductIsNull();
+            return new ResponseEntity<>(itemPriceService.findAllWhereProductIsNull(),
+                    HttpStatus.OK);
         }
-        log.debug("REST request to get all ItemPrices");
-        return itemPriceService.findAll();
+        log.debug("REST request to get a page of ItemPrices");
+        Page<ItemPriceDTO> page = itemPriceService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/item-prices");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

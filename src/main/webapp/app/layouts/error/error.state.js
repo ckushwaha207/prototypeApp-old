@@ -32,7 +32,8 @@
                 parent: 'app',
                 url: '/accessdenied',
                 data: {
-                    authorities: []
+                    authorities: [],
+                    pageTitle: 'error.title'
                 },
                 views: {
                     'content@': {

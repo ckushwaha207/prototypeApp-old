@@ -1,0 +1,38 @@
+entity Category {
+	name String required
+    description String
+}
+
+entity Product {
+	productId String required maxlength(20)
+	barcodeId String required maxlength(128)
+	name String required
+    skuCode String required minlength(2) maxlength(20)
+    imageUrl String
+	description String
+}
+
+entity ItemPrice {
+	productId String required maxlength(20)
+	listPrice Double required
+    salePrice Double required
+}
+
+relationship OneToOne {
+	Category{parentCategory(name)} to Category
+}
+
+relationship ManyToOne {
+    Product{category} to Category{products}
+}
+
+relationship OneToOne{
+	Product{price} to ItemPrice{product}
+}
+
+paginate * with pager
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

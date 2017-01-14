@@ -1,0 +1,64 @@
+<div>
+    <h2 data-translate="prototypeApp.commerceItem.home.title">Commerce Items</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="commerce-item.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="prototypeApp.commerceItem.home.createLabel">
+                        Create new Commerce Item
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="prototypeApp.commerceItem.quantity">Quantity</span></th>
+                    <th><span data-translate="prototypeApp.commerceItem.product">Product</span></th>
+                    <th><span data-translate="prototypeApp.commerceItem.order">Order</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="commerceItem in vm.commerceItems track by commerceItem.id">
+                    <td><a ui-sref="commerce-item-detail({id:commerceItem.id})">{{commerceItem.id}}</a></td>
+                    <td>{{commerceItem.quantity}}</td>
+                    <td>
+                        <a ui-sref="product-detail({id:commerceItem.productId})">{{commerceItem.productId}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="order-detail({id:commerceItem.orderId})">{{commerceItem.orderId}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="commerce-item-detail({id:commerceItem.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="commerce-item.edit({id:commerceItem.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="commerce-item.delete({id:commerceItem.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

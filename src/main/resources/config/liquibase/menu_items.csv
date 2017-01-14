@@ -1,0 +1,7 @@
+id,name,price,preparation_time,ingredient,image_url,description,category_id
+1,Paneer Tikka,150,Paneer,http://www.vegrecipesofindia.com/wp-content/uploads/2011/10/tandoori-paneer-tikka.jpg,,1
+2,Dum Aloo,105,Potato,http://www.ecurry.com/blog/wp-content/uploads/2008/11/dum-aloo-3-500x345.jpg,,2
+3,Butter Naan,15,Wheat Flour,https://4.bp.blogspot.com/-trzvRINI8tw/UBbkmQBlUpI/AAAAAAAARio/dz565i2YNic/s400/bn+with+butter.jpg,,3
+4,Butter Chicken,200,Chicken,http://i247.photobucket.com/albums/gg158/MDA2008/MDA2009/butter_chicken2.jpg,,4
+5,Vanilla Ice-cream,75,Vanilla,http://www.browneyedbaker.com/wp-content/uploads/2013/05/vanilla-bean-ice-cream-23-600.jpg,,5
+

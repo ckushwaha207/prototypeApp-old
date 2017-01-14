@@ -1,0 +1,15 @@
+entity MenuItem {
+	name String required
+    price Double required
+    preparationTime Integer required
+    ingredient String
+    imageUrl String
+    description String
+}
+
+paginate * with pager
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

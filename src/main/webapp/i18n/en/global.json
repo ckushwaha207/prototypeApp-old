@@ -9,6 +9,13 @@
                 "main": "Entities",
                 "product": "Product",
                 "itemPrice": "Item Price",
+                "store": "Store",
+                "storeBranch": "Store Branch",
+                "storeUser": "Store User",
+                "location": "Location",
+                "category": "Category",
+                "order": "Order",
+                "commerceItem": "Commerce Item",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

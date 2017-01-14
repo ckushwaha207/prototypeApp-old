@@ -32,6 +32,10 @@
         <dd>
             <a ui-sref="item-price-detail({id:vm.product.priceId})">{{vm.product.priceId}}</a>
         </dd>
+        <dt><span data-translate="prototypeApp.product.category">Category</span></dt>
+        <dd>
+            <a ui-sref="category-detail({id:vm.product.categoryId})">{{vm.product.categoryId}}</a>
+        </dd>
     </dl>
 
     <button type="submit"

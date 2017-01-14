@@ -1,0 +1,24 @@
+{
+    "prototypeApp": {
+        "storeBranch" : {
+            "home": {
+                "title": "Store Branches",
+                "createLabel": "Create a new Store Branch",
+                "createOrEditLabel": "Create or edit a Store Branch",
+                "search": "Search for Store Branch"
+            },
+            "created": "A new Store Branch is created with identifier {{ param }}",
+            "updated": "A Store Branch is updated with identifier {{ param }}",
+            "deleted": "A Store Branch is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Store Branch {{ id }}?"
+            },
+            "detail": {
+                "title": "Store Branch"
+            },
+            "name": "Name",
+            "location": "Location",
+            "store": "Store"
+        }
+    }
+}
