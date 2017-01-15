@@ -5,9 +5,9 @@
         .module('prototypeApp')
         .controller('MenuItemDetailController', MenuItemDetailController);
 
-    MenuItemDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'MenuItem'];
+    MenuItemDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'MenuItem', 'MenuCategory'];
 
-    function MenuItemDetailController($scope, $rootScope, $stateParams, previousState, entity, MenuItem) {
+    function MenuItemDetailController($scope, $rootScope, $stateParams, previousState, entity, MenuItem, MenuCategory) {
         var vm = this;
 
         vm.menuItem = entity;

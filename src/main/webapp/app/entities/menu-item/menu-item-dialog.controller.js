@@ -5,14 +5,15 @@
         .module('prototypeApp')
         .controller('MenuItemDialogController', MenuItemDialogController);
 
-    MenuItemDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'MenuItem'];
+    MenuItemDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'MenuItem', 'MenuCategory'];
 
-    function MenuItemDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, MenuItem) {
+    function MenuItemDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, MenuItem, MenuCategory) {
         var vm = this;
 
         vm.menuItem = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.menucategories = MenuCategory.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

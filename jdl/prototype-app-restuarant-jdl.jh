@@ -1,3 +1,11 @@
+entity Menu {
+	name String required
+}
+
+entity MenuCategory {
+	name String required
+}
+
 entity MenuItem {
 	name String required
     price Double required
@@ -7,7 +15,15 @@ entity MenuItem {
     description String
 }
 
-paginate * with pager
+relationship OneToMany {
+	Menu{categories(name)} to MenuCategory{menu(name)}
+}
+
+relationship OneToMany {
+	MenuCategory{items(name)} to MenuItem{category(name)}
+}
+
+// 6paginate * with pager
 
 dto * with mapstruct
 

@@ -21,7 +21,8 @@
             "preparationTime": "Preparation Time",
             "ingredient": "Ingredient",
             "imageUrl": "Image Url",
-            "description": "Description"
+            "description": "Description",
+            "category": "Category"
         }
     }
 }

@@ -43,6 +43,9 @@ public class MenuItem implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    private MenuCategory category;
+
     public Long getId() {
         return id;
     }
@@ -127,6 +130,19 @@ public class MenuItem implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public MenuCategory getCategory() {
+        return category;
+    }
+
+    public MenuItem category(MenuCategory menuCategory) {
+        this.category = menuCategory;
+        return this;
+    }
+
+    public void setCategory(MenuCategory menuCategory) {
+        this.category = menuCategory;
     }
 
     @Override

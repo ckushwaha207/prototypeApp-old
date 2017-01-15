@@ -1,0 +1,78 @@
+<div class="content-wrapper" ng-cloak>
+    <section class="content-header">
+        <h1 data-translate="prototypeApp.menuCategory.home.title">Menu Categories</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li> Settings</li>
+            <li class="active" data-translate="prototypeApp.menuCategory.home.title">Menu Categories</li>
+        </ol>
+        <span><br/></span>
+        <jhi-alert></jhi-alert>
+    </section>
+
+    <section class="content" ng-switch="vm.menuCategories.length > 0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 no-padding-left">
+                    <button class="btn btn-primary" ui-sref="menu-category.new">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span data-translate="prototypeApp.menuCategory.home.createLabel">
+                        Create new Menu Category
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="table-responsive">
+            <table class="jh-table table table-striped">
+                <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuCategory.name">Name</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="menuName"><span data-translate="prototypeApp.menuCategory.menu">Menu</span> <span
+                        class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="menuCategory in vm.menuCategories track by menuCategory.id">
+                    <td><a ui-sref="menu-category-detail({id:menuCategory.id})">{{menuCategory.id}}</a></td>
+                    <td>{{menuCategory.name}}</td>
+                    <td>
+                        <a ui-sref="menu-detail({id:menuCategory.menuId})">{{menuCategory.menuName}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="menu-category-detail({id:menuCategory.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="menu-category.edit({id:menuCategory.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="menu-category.delete({id:menuCategory.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center">
+            <jhi-item-count page="vm.page" total="vm.queryCount" items-per-page="vm.itemsPerPage"></jhi-item-count>
+        </div>
+        <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+    </section>
+</div>

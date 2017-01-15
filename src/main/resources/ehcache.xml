@@ -44,5 +44,13 @@
 
     <cache alias="com.app.proto.domain.MenuItem" uses-template="simple"/>
 
+    <cache alias="com.app.proto.domain.Menu" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.Menu.categories" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.MenuCategory" uses-template="simple"/>
+
+    <cache alias="com.app.proto.domain.MenuCategory.items" uses-template="simple"/>
+
     <!-- jhipster-needle-ehcache-add-entry -->
 </config>

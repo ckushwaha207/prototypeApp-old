@@ -28,26 +28,18 @@
             <table class="jh-table table table-striped" ng-switch-when="true">
                 <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuItem.name">Name</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="price"><span data-translate="prototypeApp.menuItem.price">Price</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="preparationTime"><span data-translate="prototypeApp.menuItem.preparationTime">Preparation Time</span>
-                        <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="ingredient"><span
-                        data-translate="prototypeApp.menuItem.ingredient">Ingredient</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="imageUrl"><span data-translate="prototypeApp.menuItem.imageUrl">Image Url</span>
-                        <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span
-                        data-translate="prototypeApp.menuItem.description">Description</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuItem.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span data-translate="prototypeApp.menuItem.price">Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="preparationTime"><span data-translate="prototypeApp.menuItem.preparationTime">Preparation Time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ingredient"><span data-translate="prototypeApp.menuItem.ingredient">Ingredient</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imageUrl"><span data-translate="prototypeApp.menuItem.imageUrl">Image Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span data-translate="prototypeApp.menuItem.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="categoryName"><span data-translate="prototypeApp.menuItem.category">Category</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
-                </thead>
-                <tbody>
+            </thead>
+            <tbody>
                 <tr ng-repeat="menuItem in vm.menuItems track by menuItem.id">
                     <td><a ui-sref="menu-item-detail({id:menuItem.id})">{{menuItem.id}}</a></td>
                     <td>{{menuItem.name}}</td>
@@ -56,6 +48,9 @@
                     <td>{{menuItem.ingredient}}</td>
                     <td>{{menuItem.imageUrl}}</td>
                     <td>{{menuItem.description}}</td>
+                    <td>
+                        <a ui-sref="menu-category-detail({id:menuItem.categoryId})">{{menuItem.categoryName}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
