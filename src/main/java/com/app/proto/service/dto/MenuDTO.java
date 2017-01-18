@@ -1,17 +1,17 @@
 package com.app.proto.service.dto;
 
-import com.app.proto.domain.MenuCategory;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 
 /**
  * A DTO for the Menu entity.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MenuDTO implements Serializable {
 
     private Long id;
@@ -19,13 +19,13 @@ public class MenuDTO implements Serializable {
     @NotNull
     private String name;
 
-    private Set<MenuCategory> categories;
+    private Set<MenuCategoryDTO> categories;
 
-    public Set<MenuCategory> getCategories() {
+    public Set<MenuCategoryDTO> getCategories() {
         return categories;
     }
 
-    public void setCategories(Set<MenuCategory> categories) {
+    public void setCategories(Set<MenuCategoryDTO> categories) {
         this.categories = categories;
     }
 
@@ -36,6 +36,7 @@ public class MenuDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -56,7 +57,7 @@ public class MenuDTO implements Serializable {
 
         MenuDTO menuDTO = (MenuDTO) o;
 
-        if ( ! Objects.equals(id, menuDTO.id)) return false;
+        if (!Objects.equals(id, menuDTO.id)) return false;
 
         return true;
     }

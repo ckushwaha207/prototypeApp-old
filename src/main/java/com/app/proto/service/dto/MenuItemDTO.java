@@ -1,15 +1,16 @@
 package com.app.proto.service.dto;
 
-import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 
 /**
  * A DTO for the MenuItem entity.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MenuItemDTO implements Serializable {
 
     private Long id;
@@ -31,7 +32,7 @@ public class MenuItemDTO implements Serializable {
 
 
     private Long categoryId;
-    
+
 
     private String categoryName;
 
@@ -42,6 +43,7 @@ public class MenuItemDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -49,6 +51,7 @@ public class MenuItemDTO implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
     public Double getPrice() {
         return price;
     }
@@ -56,6 +59,7 @@ public class MenuItemDTO implements Serializable {
     public void setPrice(Double price) {
         this.price = price;
     }
+
     public Integer getPreparationTime() {
         return preparationTime;
     }
@@ -63,6 +67,7 @@ public class MenuItemDTO implements Serializable {
     public void setPreparationTime(Integer preparationTime) {
         this.preparationTime = preparationTime;
     }
+
     public String getIngredient() {
         return ingredient;
     }
@@ -70,6 +75,7 @@ public class MenuItemDTO implements Serializable {
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
+
     public String getImageUrl() {
         return imageUrl;
     }
@@ -77,6 +83,7 @@ public class MenuItemDTO implements Serializable {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
     public String getDescription() {
         return description;
     }
@@ -113,7 +120,7 @@ public class MenuItemDTO implements Serializable {
 
         MenuItemDTO menuItemDTO = (MenuItemDTO) o;
 
-        if ( ! Objects.equals(id, menuItemDTO.id)) return false;
+        if (!Objects.equals(id, menuItemDTO.id)) return false;
 
         return true;
     }

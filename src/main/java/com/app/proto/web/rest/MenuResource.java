@@ -1,11 +1,10 @@
 package com.app.proto.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import com.app.proto.service.MenuService;
+import com.app.proto.service.dto.MenuDTO;
 import com.app.proto.web.rest.util.HeaderUtil;
 import com.app.proto.web.rest.util.PaginationUtil;
-import com.app.proto.service.dto.MenuDTO;
-
+import com.codahale.metrics.annotation.Timed;
 import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +19,8 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Menu.
@@ -33,7 +30,7 @@ import java.util.stream.Collectors;
 public class MenuResource {
 
     private final Logger log = LoggerFactory.getLogger(MenuResource.class);
-        
+
     @Inject
     private MenuService menuService;
 
