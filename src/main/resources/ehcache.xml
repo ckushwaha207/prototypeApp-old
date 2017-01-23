@@ -26,18 +26,6 @@
 
     <cache alias="com.app.proto.domain.ItemPrice" uses-template="simple"/>
 
-    <cache alias="com.app.proto.domain.Store" uses-template="simple"/>
-
-    <cache alias="com.app.proto.domain.Store.branches" uses-template="simple"/>
-
-    <cache alias="com.app.proto.domain.Store.users" uses-template="simple"/>
-
-    <cache alias="com.app.proto.domain.StoreBranch" uses-template="simple"/>
-
-    <cache alias="com.app.proto.domain.StoreUser" uses-template="simple"/>
-
-    <cache alias="com.app.proto.domain.Location" uses-template="simple"/>
-
     <cache alias="com.app.proto.domain.Category" uses-template="simple"/>
 
     <cache alias="com.app.proto.domain.Category.products" uses-template="simple"/>
