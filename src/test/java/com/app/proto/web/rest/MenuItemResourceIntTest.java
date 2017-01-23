@@ -31,6 +31,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+import com.app.proto.domain.enumeration.Diet;
 /**
  * Test class for the MenuItemResource REST controller.
  *
@@ -57,6 +58,9 @@ public class MenuItemResourceIntTest {
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final Diet DEFAULT_DIET = Diet.VEG;
+    private static final Diet UPDATED_DIET = Diet.NON_VEG;
 
     @Inject
     private MenuItemRepository menuItemRepository;
@@ -103,7 +107,8 @@ public class MenuItemResourceIntTest {
                 .preparationTime(DEFAULT_PREPARATION_TIME)
                 .ingredient(DEFAULT_INGREDIENT)
                 .imageUrl(DEFAULT_IMAGE_URL)
-                .description(DEFAULT_DESCRIPTION);
+                .description(DEFAULT_DESCRIPTION)
+                .diet(DEFAULT_DIET);
         return menuItem;
     }
 
@@ -135,6 +140,7 @@ public class MenuItemResourceIntTest {
         assertThat(testMenuItem.getIngredient()).isEqualTo(DEFAULT_INGREDIENT);
         assertThat(testMenuItem.getImageUrl()).isEqualTo(DEFAULT_IMAGE_URL);
         assertThat(testMenuItem.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testMenuItem.getDiet()).isEqualTo(DEFAULT_DIET);
     }
 
     @Test
@@ -231,7 +237,8 @@ public class MenuItemResourceIntTest {
             .andExpect(jsonPath("$.[*].preparationTime").value(hasItem(DEFAULT_PREPARATION_TIME)))
             .andExpect(jsonPath("$.[*].ingredient").value(hasItem(DEFAULT_INGREDIENT.toString())))
             .andExpect(jsonPath("$.[*].imageUrl").value(hasItem(DEFAULT_IMAGE_URL.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].diet").value(hasItem(DEFAULT_DIET.toString())));
     }
 
     @Test
@@ -250,7 +257,8 @@ public class MenuItemResourceIntTest {
             .andExpect(jsonPath("$.preparationTime").value(DEFAULT_PREPARATION_TIME))
             .andExpect(jsonPath("$.ingredient").value(DEFAULT_INGREDIENT.toString()))
             .andExpect(jsonPath("$.imageUrl").value(DEFAULT_IMAGE_URL.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.diet").value(DEFAULT_DIET.toString()));
     }
 
     @Test
@@ -276,7 +284,8 @@ public class MenuItemResourceIntTest {
                 .preparationTime(UPDATED_PREPARATION_TIME)
                 .ingredient(UPDATED_INGREDIENT)
                 .imageUrl(UPDATED_IMAGE_URL)
-                .description(UPDATED_DESCRIPTION);
+                .description(UPDATED_DESCRIPTION)
+                .diet(UPDATED_DIET);
         MenuItemDTO menuItemDTO = menuItemMapper.menuItemToMenuItemDTO(updatedMenuItem);
 
         restMenuItemMockMvc.perform(put("/api/menu-items")
@@ -294,6 +303,7 @@ public class MenuItemResourceIntTest {
         assertThat(testMenuItem.getIngredient()).isEqualTo(UPDATED_INGREDIENT);
         assertThat(testMenuItem.getImageUrl()).isEqualTo(UPDATED_IMAGE_URL);
         assertThat(testMenuItem.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testMenuItem.getDiet()).isEqualTo(UPDATED_DIET);
     }
 
     @Test

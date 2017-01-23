@@ -68,7 +68,7 @@ class MenuItemGatlingTest extends Simulation {
             .exec(http("Create new menuItem")
             .post("/api/menu-items")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "price":null, "preparationTime":"0", "ingredient":"SAMPLE_TEXT", "imageUrl":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "price":null, "preparationTime":"0", "ingredient":"SAMPLE_TEXT", "imageUrl":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "diet":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_menuItem_url"))).exitHereIfFailed
             .pause(10)

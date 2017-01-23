@@ -4,9 +4,11 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
+
+import com.app.proto.domain.enumeration.Diet;
 
 /**
  * A MenuItem.
@@ -42,6 +44,10 @@ public class MenuItem implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "diet")
+    private Diet diet;
 
     @ManyToOne
     private MenuCategory category;
@@ -132,6 +138,19 @@ public class MenuItem implements Serializable {
         this.description = description;
     }
 
+    public Diet getDiet() {
+        return diet;
+    }
+
+    public MenuItem diet(Diet diet) {
+        this.diet = diet;
+        return this;
+    }
+
+    public void setDiet(Diet diet) {
+        this.diet = diet;
+    }
+
     public MenuCategory getCategory() {
         return category;
     }
@@ -175,6 +194,7 @@ public class MenuItem implements Serializable {
             ", ingredient='" + ingredient + "'" +
             ", imageUrl='" + imageUrl + "'" +
             ", description='" + description + "'" +
+            ", diet='" + diet + "'" +
             '}';
     }
 }

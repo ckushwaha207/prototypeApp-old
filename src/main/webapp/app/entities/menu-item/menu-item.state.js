@@ -46,6 +46,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('menuItem');
+                    $translatePartialLoader.addPart('diet');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -68,6 +69,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('menuItem');
+                    $translatePartialLoader.addPart('diet');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'MenuItem', function($stateParams, MenuItem) {
@@ -130,6 +132,7 @@
                                 ingredient: null,
                                 imageUrl: null,
                                 description: null,
+                                diet: null,
                                 id: null
                             };
                         }

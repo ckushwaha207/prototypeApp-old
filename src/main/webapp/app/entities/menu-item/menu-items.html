@@ -35,6 +35,7 @@
                     <th jh-sort-by="ingredient"><span data-translate="prototypeApp.menuItem.ingredient">Ingredient</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="imageUrl"><span data-translate="prototypeApp.menuItem.imageUrl">Image Url</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span data-translate="prototypeApp.menuItem.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="diet"><span data-translate="prototypeApp.menuItem.diet">Diet</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="categoryName"><span data-translate="prototypeApp.menuItem.category">Category</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
@@ -48,6 +49,7 @@
                     <td>{{menuItem.ingredient}}</td>
                     <td>{{menuItem.imageUrl}}</td>
                     <td>{{menuItem.description}}</td>
+                    <td data-translate="{{'prototypeApp.Diet.' + menuItem.diet}}">{{menuItem.diet}}</td>
                     <td>
                         <a ui-sref="menu-category-detail({id:menuItem.categoryId})">{{menuItem.categoryName}}</a>
                     </td>

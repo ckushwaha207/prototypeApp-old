@@ -1,16 +1,16 @@
 package com.app.proto.service.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
+import com.app.proto.domain.enumeration.Diet;
 
 /**
  * A DTO for the MenuItem entity.
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MenuItemDTO implements Serializable {
 
     private Long id;
@@ -30,9 +30,11 @@ public class MenuItemDTO implements Serializable {
 
     private String description;
 
+    private Diet diet;
+
 
     private Long categoryId;
-
+    
 
     private String categoryName;
 
@@ -85,6 +87,13 @@ public class MenuItemDTO implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+    public Diet getDiet() {
+        return diet;
+    }
+
+    public void setDiet(Diet diet) {
+        this.diet = diet;
+    }
 
     public Long getCategoryId() {
         return categoryId;
@@ -134,6 +143,7 @@ public class MenuItemDTO implements Serializable {
             ", ingredient='" + ingredient + "'" +
             ", imageUrl='" + imageUrl + "'" +
             ", description='" + description + "'" +
+            ", diet='" + diet + "'" +
             '}';
     }
 }

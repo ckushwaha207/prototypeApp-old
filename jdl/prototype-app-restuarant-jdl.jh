@@ -6,6 +6,10 @@ entity MenuCategory {
 	name String required
 }
 
+enum Diet {
+	VEG, NON_VEG, EGG
+}
+
 entity MenuItem {
 	name String required
     price Double required
@@ -13,6 +17,7 @@ entity MenuItem {
     ingredient String
     imageUrl String
     description String
+    diet Diet
 }
 
 relationship OneToMany {

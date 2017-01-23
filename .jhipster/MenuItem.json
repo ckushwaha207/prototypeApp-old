@@ -41,6 +41,11 @@
         {
             "fieldName": "description",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "diet",
+            "fieldType": "Diet",
+            "fieldValues": "VEG,NON_VEG,EGG"
         }
     ],
     "changelogDate": "20170111154930",

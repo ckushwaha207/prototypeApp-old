@@ -22,6 +22,7 @@
             "ingredient": "Ingredient",
             "imageUrl": "Image Url",
             "description": "Description",
+            "diet": "Diet",
             "category": "Category"
         }
     }
