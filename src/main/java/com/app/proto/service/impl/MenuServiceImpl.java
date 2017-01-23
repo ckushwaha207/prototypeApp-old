@@ -56,9 +56,8 @@ public class MenuServiceImpl implements MenuService{
     @Transactional(readOnly = true)
     public Page<MenuDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Menus");
-        Page<Menu> menuPages = menuRepository.findAll(pageable);
-        Page<MenuDTO> menuDTO = menuPages.map(menu -> menuMapper.menuToMenuDTO(menu));
-        return menuDTO;
+        Page<Menu> result = menuRepository.findAll(pageable);
+        return result.map(menu -> menuMapper.menuToMenuDTO(menu));
     }
 
     /**

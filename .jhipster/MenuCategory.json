@@ -2,6 +2,14 @@
     "fluentMethods": true,
     "relationships": [
         {
+            "relationshipType": "one-to-one",
+            "relationshipName": "parentCategory",
+            "otherEntityName": "menuCategory",
+            "otherEntityField": "name",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "menuCategory"
+        },
+        {
             "relationshipType": "one-to-many",
             "relationshipName": "items",
             "otherEntityName": "menuItem",

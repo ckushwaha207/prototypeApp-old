@@ -5,14 +5,23 @@
         .module('prototypeApp')
         .controller('MenuCategoryDialogController', MenuCategoryDialogController);
 
-    MenuCategoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'MenuCategory', 'MenuItem', 'Menu'];
+    MenuCategoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'MenuCategory', 'MenuItem', 'Menu'];
 
-    function MenuCategoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, MenuCategory, MenuItem, Menu) {
+    function MenuCategoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, MenuCategory, MenuItem, Menu) {
         var vm = this;
 
         vm.menuCategory = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.parentcategories = MenuCategory.query({filter: 'menucategory-is-null'});
+        $q.all([vm.menuCategory.$promise, vm.parentcategories.$promise]).then(function() {
+            if (!vm.menuCategory.parentCategoryId) {
+                return $q.reject();
+            }
+            return MenuCategory.get({id : vm.menuCategory.parentCategoryId}).$promise;
+        }).then(function(parentCategory) {
+            vm.parentcategories.push(parentCategory);
+        });
         vm.menuitems = MenuItem.query();
         vm.menus = Menu.query();
 

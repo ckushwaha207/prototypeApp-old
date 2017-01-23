@@ -17,6 +17,7 @@
                 "title": "Menu Category"
             },
             "name": "Name",
+            "parentCategory": "Parent Category",
             "items": "Items",
             "menu": "Menu"
         }

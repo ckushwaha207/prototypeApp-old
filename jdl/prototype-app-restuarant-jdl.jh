@@ -19,11 +19,15 @@ relationship OneToMany {
 	Menu{categories(name)} to MenuCategory{menu(name)}
 }
 
+relationship OneToOne {
+	MenuCategory{parentCategory(name)} to MenuCategory
+}
+
 relationship OneToMany {
 	MenuCategory{items(name)} to MenuItem{category(name)}
 }
 
-// 6paginate * with pager
+paginate * with pager
 
 dto * with mapstruct
 

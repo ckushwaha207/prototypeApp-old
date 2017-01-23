@@ -28,12 +28,10 @@
             <table class="jh-table table table-striped">
                 <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuCategory.name">Name</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="menuName"><span data-translate="prototypeApp.menuCategory.menu">Menu</span> <span
-                        class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span data-translate="prototypeApp.menuCategory.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="parentCategoryName"><span data-translate="prototypeApp.menuCategory.parentCategory">Parent Category</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="menuName"><span data-translate="prototypeApp.menuCategory.menu">Menu</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -41,6 +39,9 @@
                 <tr ng-repeat="menuCategory in vm.menuCategories track by menuCategory.id">
                     <td><a ui-sref="menu-category-detail({id:menuCategory.id})">{{menuCategory.id}}</a></td>
                     <td>{{menuCategory.name}}</td>
+                    <td>
+                        <a ui-sref="menu-category-detail({id:menuCategory.parentCategoryId})">{{menuCategory.parentCategoryName}}</a>
+                    </td>
                     <td>
                         <a ui-sref="menu-detail({id:menuCategory.menuId})">{{menuCategory.menuName}}</a>
                     </td>

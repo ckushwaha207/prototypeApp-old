@@ -20,6 +20,11 @@ public class MenuCategoryDTO implements Serializable {
     private String name;
 
 
+    private Long parentCategoryId;
+
+
+    private String parentCategoryName;
+
     private Long menuId;
 
 
@@ -51,6 +56,23 @@ public class MenuCategoryDTO implements Serializable {
         this.name = name;
     }
 
+    public Long getParentCategoryId() {
+        return parentCategoryId;
+    }
+
+    public void setParentCategoryId(Long menuCategoryId) {
+        this.parentCategoryId = menuCategoryId;
+    }
+
+
+    public String getParentCategoryName() {
+        return parentCategoryName;
+    }
+
+    public void setParentCategoryName(String menuCategoryName) {
+        this.parentCategoryName = menuCategoryName;
+    }
+
     public Long getMenuId() {
         return menuId;
     }
@@ -79,7 +101,7 @@ public class MenuCategoryDTO implements Serializable {
 
         MenuCategoryDTO menuCategoryDTO = (MenuCategoryDTO) o;
 
-        if (!Objects.equals(id, menuCategoryDTO.id)) return false;
+        if ( ! Objects.equals(id, menuCategoryDTO.id)) return false;
 
         return true;
     }

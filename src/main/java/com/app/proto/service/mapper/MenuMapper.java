@@ -33,7 +33,9 @@ public interface MenuMapper {
 
     @Mappings({
         @Mapping(target = "menuId", ignore = true),
-        @Mapping(target = "menuName", ignore = true)
+        @Mapping(target = "menuName", ignore = true),
+        @Mapping(target = "parentCategoryId", ignore = true),
+        @Mapping(target = "parentCategoryName", ignore = true)
     })
     MenuCategoryDTO menuCategoryToMenuCategoryDTO(MenuCategory menuCategory);
 

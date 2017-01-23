@@ -27,6 +27,12 @@
         </div>
 
         <div class="form-group">
+            <label data-translate="prototypeApp.menuCategory.parentCategory" for="field_parentCategory">Parent Category</label>
+            <select class="form-control" id="field_parentCategory" name="parentCategory" ng-model="vm.menuCategory.parentCategoryId" ng-options="menuCategory.id as menuCategory.name for menuCategory in vm.parentcategories | orderBy:'id'">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
             <label data-translate="prototypeApp.menuCategory.menu" for="field_menu">Menu</label>
             <select class="form-control" id="field_menu" name="menu" ng-model="vm.menuCategory.menuId" ng-options="menu.id as menu.name for menu in vm.menus"            >
                 <option value=""></option>

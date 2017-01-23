@@ -36,7 +36,6 @@ public class MenuDTO implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
@@ -44,7 +43,6 @@ public class MenuDTO implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -57,7 +55,7 @@ public class MenuDTO implements Serializable {
 
         MenuDTO menuDTO = (MenuDTO) o;
 
-        if (!Objects.equals(id, menuDTO.id)) return false;
+        if ( ! Objects.equals(id, menuDTO.id)) return false;
 
         return true;
     }

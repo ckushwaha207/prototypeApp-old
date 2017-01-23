@@ -28,6 +28,10 @@ public class MenuCategory implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private MenuCategory parentCategory;
+
     @OneToMany(mappedBy = "category")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<MenuItem> items = new HashSet<>();
@@ -54,6 +58,19 @@ public class MenuCategory implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public MenuCategory getParentCategory() {
+        return parentCategory;
+    }
+
+    public MenuCategory parentCategory(MenuCategory menuCategory) {
+        this.parentCategory = menuCategory;
+        return this;
+    }
+
+    public void setParentCategory(MenuCategory menuCategory) {
+        this.parentCategory = menuCategory;
     }
 
     public Set<MenuItem> getItems() {

@@ -8,6 +8,10 @@
         <dd>
             <span>{{vm.menuCategory.name}}</span>
         </dd>
+        <dt><span data-translate="prototypeApp.menuCategory.parentCategory">Parent Category</span></dt>
+        <dd>
+            <a ui-sref="menu-category-detail({id:vm.menuCategory.parentCategoryId})">{{vm.menuCategory.parentCategoryName}}</a>
+        </dd>
         <dt><span data-translate="prototypeApp.menuCategory.menu">Menu</span></dt>
         <dd>
             <a ui-sref="menu-detail({id:vm.menuCategory.menuId})">{{vm.menuCategory.menuName}}</a>
